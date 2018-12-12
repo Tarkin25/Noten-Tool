@@ -17,6 +17,18 @@
 </head>
 <body>
 
+
+<!-- navbar start -->
+    <img src="logo.png">
+    <ul>
+    <li><a class="active" href="#home">Home</a></li>
+    <li><a href="#contact">Module und Noten</a></li>
+    <li><a href="#about">Eintragen von Noten</a></li>
+    </ul>
+
+<!-- navbar -->
+
+
 <!-- Formular start-->
 
     <div class="container">
@@ -49,7 +61,7 @@
         <button type="submit" class="btn btn-primary">Eintragen</button>
     </form>
     </div>
-
+ <p> Hello world</p>
 <!-- Formular ende -->
 </body>
 </html>
