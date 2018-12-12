@@ -26,4 +26,5 @@
             echo "<script>alert('No open connection available to close');</script>";
         }
     }
+
 ?>
