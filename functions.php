@@ -47,8 +47,13 @@
                 //exit;
             }
 
-            //create a new table called '[modulnummer]' for later record of students' grades
-            $sql2 = "CREATE TABLE $mname (Vorname varchar, Nachname varchar, Note number)";
+            //create a new table called '[modulname]' for later record of students' grades
+            $sql2 = "CREATE TABLE test (Vorname VARCHAR, Nachname VARCHAR, Note INT)";
+            $sql2 = "CREATE TABLE `{$mname}` (
+                vorname VARCHAR(50), 
+                nachname VARCHAR(50),
+                note INT(6),
+                )";
 
             if($GLOBALS['conn']->query($sql2) == TRUE) {
                 echo "<script>alert('Notentabelle für das Modul $mname erfolgreich erstellt');</script>";
