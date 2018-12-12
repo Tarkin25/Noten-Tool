@@ -61,7 +61,6 @@
         <button type="submit" class="btn btn-primary">Eintragen</button>
     </form>
     </div>
- <p> Hello world</p>
 <!-- Formular ende -->
 </body>
 </html>
