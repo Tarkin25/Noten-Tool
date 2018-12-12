@@ -13,22 +13,33 @@
 
 <!-- Formular start-->
 <div class="container">
-    <h2>Stacked form</h2>
+    <h2>Formular zum eintragen der Modulnote</h2>
     <form action="/action_page.php">
         <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+        <label for="modulnummer">Modulnummer:</label>
+        <input type="modulnummer" class="form-control" id="modulnummer" placeholder="Trage die Modulnummer ein" name="modulnummer">
         </div>
         <div class="form-group">
-        <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+        <label for="modulname">Modulname:</label>
+        <input type="modulname" class="form-control" id="modulname" placeholder="Trage die Modulname ein" name="modulname">
         </div>
-        <div class="form-group form-check">
-        <label class="form-check-label">
-            <input class="form-check-input" type="checkbox" name="remember"> Remember me
-        </label>
+        <div class="form-group">
+        <label for="durchführungsdatum">Durchführungsdatum:</label>
+        <input type="durchführungsdatum" class="form-control" id="durchführungsdatum" placeholder="Trage das Durchführungsdatum ein" name="durchführungsdatum">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-group">
+        <label for="vorname">Vorname:</label>
+        <input type="vorname" class="form-control" id="vorname" placeholder="Trage deinen Vornamen ein" name="vorname">
+        </div>
+        <div class="form-group">
+        <label for="nachname">Nachname:</label>
+        <input type="nachname" class="form-control" id="nachname" placeholder="Trage deinen Nachnamen ein" name="nachname">
+        </div>
+        <div class="form-group">
+        <label for="note">Note:</label>
+        <input type="note" class="form-control" id="note" placeholder="Trage deine Note ein" name="note">
+        </div>
+        <button type="submit" class="btn btn-primary">Eintragen</button>
     </form>
     </div>
 <!-- Formular ende -->
