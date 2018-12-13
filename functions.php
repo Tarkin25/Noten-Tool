@@ -1,6 +1,6 @@
 <?php
 
-    error_reporting(0);
+    //error_reporting(0);
 
     function connect() {
         $servername = "localhost";
@@ -218,6 +218,22 @@
             }
         }
 
+        else if(isset($_POST['modulname'])) {
+            //validate the format of all the given inputs
+            if(!preg_match("/[a-zA-Z0-9]+/", $_POST['modulname'])) {
+                 
+                echo '<script>message.innerHTML += "Fehleingabe: Der Modulname darf nur Gross- und Kleinbuchstaben oder Zahlen enthalten und muss mindestens ein Zeichen lang sein<br>";</script>';
+                $validated = false;
+            }
+            //check if table named "[$modulname]" exists
+            $tempname = $_POST['modulname'];
+            $checktable = $GLOBALS['conn']->query("SHOW TABLES LIKE '$tempname'");
+            if($checktable->num_rows == 0) {
+                echo "Fehler: Das Modul $tempname exisiert nicht<br>";
+                $validated = false;
+            }
+        }
+
         //if not, display error message
         else {
              
@@ -234,6 +250,7 @@
         $sql = "SELECT * FROM module";
         $result = $GLOBALS['conn']->query($sql);
 
+        //take all the listed modules and print them out in a table
         if ($result->num_rows > 0) {
 
             echo "<table>";
@@ -243,15 +260,37 @@
             }
 
             echo "</table>";
-        } 
+        }
         else {
-            echo "0 results";
+            echo "<p>Keine Module vorhanden</p>";
         }
     }
 
     function showGrades() {
+        connect();
 
-        echo "Hello World";
+        if(validateGrade() == true) {
+            $modulname = $_POST['modulname'];
+
+            $sql = "SELECT * FROM $modulname";
+
+            $result = $GLOBALS['conn']->query($sql);
+
+            //print all the students in the requested module in a table
+            if ($result->num_rows > 0) {
+
+                echo "<table>";
+                
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr><td>" . $row['vorname'] . "</td><td>" . $row['nachname'] . "</td><td>" . $row['note'] . "</td></tr>";
+                }
+
+                echo "</table>";
+            } 
+            else {
+                echo "<p>Kein Modul mit dem Namen <b>$modulname</b> vorhanden</p>";
+            }
+        }
     }
 
 ?>

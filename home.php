@@ -16,24 +16,29 @@
     </head>
 
     <body>
-
-        <?php
-            if(isset($_POST['submit'])) showGrades();
-        ?>
         
         <div class="container">
             <form action="home.php" method="post">
-                <label for="vorname">Vorname: </label><input type="text" name="vorname"><br>
-                <label for="nachname">Nachname: </label><input type="text" name="nachname"><br>
-                <input class="btn btn-primary" type="submit" value="Suchen" id="studentGrades" name="submit">
+                <label for="modulname">Modulname: </label><input type="text" name="modulname"><br>
+                <input class="btn btn-primary" type="submit" value="Noten des Moduls anzeigen" name="grades">
             </form>
+
+            <?php
+                if(isset($_POST['grades'])) {
+                    showGrades();
+                }
+            ?>
         </div>
 
         <div class="container">
-            <div id="modules">
-                <?php showModules(); ?>
-            </div>
-            <button id="moduleButton" class="btn btn-primary" onclick="displayModules()">Alle Module anzeigen</button>
+
+            <form class="form" action="home.php" method="post">
+                <input class="btn btn-primary" type="submit" value="Module anzeigen" name="modules">
+            </form>
+
+            <?php
+                if(isset($_POST['modules'])) showModules();
+            ?>
         </div>
 
     </body>

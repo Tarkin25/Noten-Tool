@@ -93,12 +93,13 @@ ul {
 }
 
 table {
-  width: 100%;
+  width: 50%;
 }
 
 td {
   border: solid 2px black;
   text-align: center;
+  width: 100%;
 }
 
 /* Ausgabe ende */
