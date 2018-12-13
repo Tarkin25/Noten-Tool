@@ -50,9 +50,14 @@
 <!-- navbar -->
 
 <!-- buttons start -->
-
+<div class="col-sm-3">
+</div>
+<div class="col-sm-3"> 
 <button class="button button1">Lernender</button>
-<button class="button button2">Lehrmeister</button>
+</div>
+<div class="col-sm-3">
+<button class="button button2">Berufsbildner</button>
+</div>
 
 <div class="container">
     <br>
