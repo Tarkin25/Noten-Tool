@@ -10,17 +10,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="functions.js"></script>
 
-    <!-- php funktionen  start -->
+<!-- php funktionen  start -->
 
     <?php include 'functions.php'; ?>
 
-    <!-- php funktionen  ende -->
+<!-- php funktionen  ende -->
 
-    <!-- titel der seite start -->
+<!-- titel der seite start -->
 
     <title>NoserYoung Noten-Tool</title>
 
-    <!-- titel der seite ende -->
+<!-- titel der seite ende -->
 
     <meta charset="utf-8">
 </head>
@@ -28,61 +28,61 @@
 
 <!-- Jumborton und container start -->
 
-<div class="jumbotron">
-<div class="container"> 
+    <div class="jumbotron">
+    <div class="container"> 
 
 <!-- Jumborton und container ende -->
 
 <!-- navbar start -->
-<div class="koerper">
-    <img src="logo.png">
-    <ul>
-    <li><a class="active" href="#home">Home</a></li>
-    <li><a href="#contact">Module und Noten</a></li>
-    <li><a href="#about">Eintragen von Noten</a></li>
-    </ul>
-</div>
+        <div class="koerper">
+            <img src="logo.png">
+                <ul>
+                    <li><a class="active" href="#home">Home</a></li>
+                    <li><a href="#contact">Module und Noten</a></li>
+                    <li><a href="#about">Eintragen von Noten</a></li>
+                </ul>
+        </div>
 <!-- navbar -->
 
 
 <!-- Formular start-->
 
-    <div class="container">
-    <h2>Formular zum eintragen der Module</h2>
-    <form action="addModule.php" method="post">
-        <div class="form-group">
-        <label for="modulnummer">Modulnummer:</label>
-        <input type="number" class="form-control" id="modulnummer" placeholder="Trage die Modulnummer ein" name="modulnummer">
+        <div class="container">
+            <h2>Formular zum eintragen der Module</h2>
+            <form action="addModule.php" method="post">
+                <div class="form-group">
+                    <label for="modulnummer">Modulnummer:</label>
+                    <input type="number" class="form-control" id="modulnummer" placeholder="Trage die Modulnummer ein" name="modulnummer">
+                </div>
+                <div class="form-group">
+                    <label for="modulname">Modulname:</label>
+                    <input type="text" class="form-control" id="modulname" placeholder="Trage die Modulname ein" name="modulname">
+                </div>
+                <div class="form-group">
+                    <label for="durchführungsdatum">Voraussichtliches Durchführungsdatum:</label>
+                    <input type="date" class="form-control" id="durchführungsdatum" placeholder="Trage das Durchführungsdatum ein" name="durchführungsdatum">
+                </div>
+                <div class="form-group">
+                    <label for="vorname">Vorname:</label>
+                    <input type="text" class="form-control" id="vorname" placeholder="Trage deinen Vornamen ein" name="vorname">
+                </div>
+                <div class="form-group">
+                    <label for="nachname">Nachname:</label>
+                    <input type="text" class="form-control" id="nachname" placeholder="Trage deinen Nachnamen ein" name="nachname">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-Mailadresse:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Trage deine E-Mail ein" name="email">
+                </div>
+                <button type="submit" class="btn btn-primary">Eintragen</button>
+            </form>
         </div>
-        <div class="form-group">
-        <label for="modulname">Modulname:</label>
-        <input type="text" class="form-control" id="modulname" placeholder="Trage die Modulname ein" name="modulname">
-        </div>
-        <div class="form-group">
-        <label for="durchführungsdatum">Voraussichtliches Durchführungsdatum:</label>
-        <input type="date" class="form-control" id="durchführungsdatum" placeholder="Trage das Durchführungsdatum ein" name="durchführungsdatum">
-        </div>
-        <div class="form-group">
-        <label for="vorname">Vorname:</label>
-        <input type="text" class="form-control" id="vorname" placeholder="Trage deinen Vornamen ein" name="vorname">
-        </div>
-        <div class="form-group">
-        <label for="nachname">Nachname:</label>
-        <input type="text" class="form-control" id="nachname" placeholder="Trage deinen Nachnamen ein" name="nachname">
-        </div>
-        <div class="form-group">
-        <label for="email">E-Mailadresse:</label>
-        <input type="email" class="form-control" id="email" placeholder="Trage deine E-Mail ein" name="email">
-        </div>
-        <button type="submit" class="btn btn-primary">Eintragen</button>
-    </form>
-    </div>
 
 <!-- Formular ende -->
 
 <!-- Jumborton und container start -->
-</div>
-</div>
+    </div>
+    </div>
 <!-- Jumborton und container ende -->
 </body>
 </html>
