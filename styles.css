@@ -1,6 +1,11 @@
 /* allgemein start */
-.koerper{
+.koerper {
 background-color: white;
+}
+
+.footer {
+background-color: #333;
+color: white;
 }
 
 /* allgemein ende */

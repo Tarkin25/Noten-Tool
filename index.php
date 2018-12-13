@@ -60,6 +60,8 @@
         <div class="col-sm-3">
             <button class="button button2">Berufsbildner</button>
         </div>
+        <div class="col-sm-3">
+        </div>
 
 <!-- buttons start -->
 
@@ -70,6 +72,17 @@
 
 <!-- Jumborton und container ende -->
 
+<!-- footer start -->
+
+<div class="jumborton">
+    <div class="container">
+        <div class="footer">
+            <p>® Severin und Larissa</p>
+        </div>
+    </div>
+</div>
+
+<!-- footer start -->
 
 </body>
 </html>
