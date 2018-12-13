@@ -34,6 +34,8 @@
     function addModule() {
         connect();
 
+        $retry = false;
+
         //only if the form is validated insert data into database and send e-mail to the teacher
         if(validateModule() == true) {
             $nummer = $_POST['modulnummer'];
@@ -50,19 +52,18 @@
                  
                 echo '<script>message.innerHTML += "Modul erfolgreich erfasst<br>";</script>';
             } else {
-                 
+                $retry = true;
                 echo '<script>message.innerHTML += "Die Daten konnten nicht erfasst werden<br>";</script>';
             }
 
             //create a new table called '[modulname]' for later record of students' grades
-            $sql2 = "CREATE TABLE `{$mname}` (vorname TEXT, nachname TEXT, note INT )";
+            $sql2 = "CREATE TABLE `{$mname}` (vorname TEXT, nachname TEXT, note DOUBLE )";
 
             if($GLOBALS['conn']->query($sql2) == TRUE) {
-                 
                 echo "<script>message.innerHTML += 'Notentabelle für das Modul $mname erfolgreich erstellt<br>';</script>";
             }
             else {
-                 
+                $retry = true;
                 echo "<script>message.innerHTML += 'Es konnte keine Notentabelle für das Modul $mname erstellt werden<br>';</script>";
             }
 
@@ -82,11 +83,48 @@
             echo "<div class=\"container\"><h3>Mail an den Kursleiter</h3><p>Durchführung Modul $nummer</p><p>$msg</p></div>";
         }
 
-        //if it didn't work, print out an error and return to the form input
+        //if it didn't work, print out an error
         else {
-             
+            $retry = true;
             echo "<script>message.innerHTML += 'Fehler: Das Modul konnte nicht erfasst werden<br>';</script>";
-            sleep(5);
+        }
+
+        //if something didn't work, return to the form input, else return to the home page
+        if($retry == true) {
+            echo "<script>setTimeout(function(){document.location.href = 'berufsbildner.php';}, 4000);</script>";
+        }
+        else {
+            echo "<script>setTimeout(function(){document.location.href = 'index.php';}, 4000);</script>";
+        }
+    }
+
+    function addGrade() {
+        connect();
+
+        //only if the form is validated insert data into table
+        if(validateGrade() == true) {
+            $mname = $_POST['modulname'];
+            $vorname = $_POST['vorname'];
+            $nachname = $_POST['nachname'];
+            $note = $_POST['note'];
+
+            //insert validated data into the table named "[$mname]"
+            $sql = "INSERT INTO `{$mname}` (vorname, nachname, note) VALUES('$vorname', '$nachname', '$note')";
+
+            if($GLOBALS['conn']->query($sql) === TRUE) {
+                echo "<script>message.innerHTML += \"Note für das Modul $mname erfolgreich erfasst<br>\";</script>";
+                echo "<script>document.getElementById('gradeNavigation').style.display = 'none';</script>";
+                echo "<script>setTimeout(function(){document.location.href = 'index.php';}, 4000);</script>";
+            } else { 
+                echo "<script>message.innerHTML += \"Fehler: Note konnte für das Modul $mname nicht erfasst werden<br>\";</script>";
+                echo "<script>setTimeout(function(){document.location.href = 'lernender.php';}, 4000);</script>";
+            }
+        }
+
+        //if it didn't work, print out an error
+        else {
+            echo "<script>message.innerHTML += 'Fehler: Note konnte nicht erfasst werden<br>';</script>";
+            echo "<script>setTimeout(function(){document.location.href = 'lernender.php';}, 4000);</script>";
         }
     }
 
@@ -125,6 +163,57 @@
             if(!preg_match("/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,6})$/", $_POST['email'])) {
                  
                 echo '<script>message.innerHTML += "Fehleingabe: Die e-Mail Adresse muss ein gültiges Format haben<br>";</script>';
+                $validated = false;
+            }
+        }
+
+        //if not, display error message
+        else {
+             
+            echo '<script>message.innerHTML += "Fehleingabe: Es müssen alle Felder ausgefüllt werden<br>";</script>';
+            $validated = false;
+        }
+
+        return $validated;
+    }
+
+    function validateGrade() {
+        $validated = true;
+
+        //check if all the required fields have been filled with data
+        if(isset($_POST['modulname']) && isset($_POST['vorname']) && isset($_POST['nachname']) && isset($_POST['note'])) {
+
+            //validate the format of all the given inputs
+
+            if(!preg_match("/[a-zA-Z0-9]+/", $_POST['modulname'])) {
+                 
+                echo '<script>message.innerHTML += "Fehleingabe: Der Modulname darf nur Gross- und Kleinbuchstaben oder Zahlen enthalten und muss mindestens ein Zeichen lang sein<br>";</script>';
+                $validated = false;
+            }
+
+            if(!preg_match("/[a-zA-Z]+/", $_POST['vorname'])) {
+                 
+                echo '<script>message.innerHTML += "Fehleingabe: Der Name des Kursleiters darf nur aus Gross- und Kleinbuchstaben bestehen und muss mindestens ein Zeichen lang sein<br>";</script>';
+                $validated = false;
+            }
+
+            if(!preg_match("/[a-zA-Z]+/", $_POST['nachname'])) {
+                 
+                echo '<script>message.innerHTML += "Fehleingabe: Der Nachname des Kursleiters darf nur aus Gross- und Kleinbuchstaben bestehen und muss mindestens ein Zeichen lang sein<br>";</script>';
+                $validated = false;
+            }
+
+            if(!preg_match("/^[1-6]{1}(\.[0-9]{1,2})?/", $_POST['note'])) {
+                 
+                echo '<script>message.innerHTML += "Fehleingabe: Die Note muss ein gültiges Format haben und zwischen 1 und 6 liegen<br>";</script>';
+                $validated = false;
+            }
+
+            //check if table named "[$mname]" exists
+            $tempname = $_POST['modulname'];
+            $checktable = $GLOBALS['conn']->query("SHOW TABLES LIKE '$tempname'");
+            if($checktable->num_rows == 0) {
+                echo "<script>message.innerHTML += \"Fehler: Das Modul $tempname exisiert nicht<br>\";</script>";
                 $validated = false;
             }
         }

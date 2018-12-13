@@ -20,30 +20,22 @@
 <!-- Formular start-->
 <div class="container">
     <h2>Formular zum eintragen der Modulnote</h2>
-    <form action="/action_page.php">
-        <div class="form-group">
-        <label for="modulnummer">Modulnummer:</label>
-        <input type="modulnummer" class="form-control" id="modulnummer" placeholder="Trage die Modulnummer ein" name="modulnummer">
-        </div>
+    <form action="addGrade.php" method="post">
         <div class="form-group">
         <label for="modulname">Modulname:</label>
-        <input type="modulname" class="form-control" id="modulname" placeholder="Trage die Modulname ein" name="modulname">
+        <input type="text" class="form-control" id="modulname" placeholder="Trage den Modulnamen ein" name="modulname">
         </div>
         <div class="form-group">
-        <label for="durchführungsdatum">Durchführungsdatum:</label>
-        <input type="durchführungsdatum" class="form-control" id="durchführungsdatum" placeholder="Trage das Durchführungsdatum ein" name="durchführungsdatum">
+        <label for="modulname">Vorname:</label>
+        <input type="text" class="form-control" id="vorname" placeholder="Trage deinen Vornamen ein" name="vorname">
         </div>
         <div class="form-group">
-        <label for="vorname">Vorname:</label>
-        <input type="vorname" class="form-control" id="vorname" placeholder="Trage deinen Vornamen ein" name="vorname">
+        <label for="durchführungsdatum">Nachname:</label>
+        <input type="text" class="form-control" id="nachname" placeholder="Trage deinen Nachnamen ein" name="nachname">
         </div>
         <div class="form-group">
-        <label for="nachname">Nachname:</label>
-        <input type="nachname" class="form-control" id="nachname" placeholder="Trage deinen Nachnamen ein" name="nachname">
-        </div>
-        <div class="form-group">
-        <label for="note">Note:</label>
-        <input type="note" class="form-control" id="note" placeholder="Trage deine Note ein" name="note">
+        <label for="vorname">Note:</label>
+        <input type="text" class="form-control" id="note" placeholder="Trage deine Note ein" name="note">
         </div>
         <button type="submit" class="btn btn-primary">Eintragen</button>
     </form>
