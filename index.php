@@ -30,7 +30,6 @@
 </div>
 <!-- navbar -->
 
-
 <button class="button button1">Lernender</button>
 <button class="button button2">Lehrmeister</button>
 
