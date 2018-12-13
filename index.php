@@ -30,8 +30,8 @@
 <!-- navbar -->
 
 
-<button class="button button1">Green</button>
-<button class="button button2">Blue</button>
+<button class="button button1">Lernender</button>
+<button class="button button2">Lehrmeister</button>
 
 
 </body>
