@@ -1,10 +1,14 @@
 <?php
 
+    error_reporting(0);
+
     function connect() {
         $servername = "localhost";
         $username = "root";
         $password = "";
         $dbname = "mydb";
+
+        echo '<script>var message = document.getElementById("message");</script>';
 
         // Create connection
         if(!isset($Globals['conn'])) $GLOBALS['conn'] = new mysqli($servername, $username, $password, $dbname);
@@ -13,7 +17,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
         else {
-            echo "<script>alert('Connection established successfully');</script>";
+            echo '<script>message.innerHTML = "Verbindung zur Datenbank wurde erfolgreich hergestellt<br>";</script>';
         }
     }
 
@@ -30,6 +34,7 @@
     function addModule() {
         connect();
 
+        //only if the form is validated insert data into database and send e-mail to the teacher
         if(validateModule() == true) {
             $nummer = $_POST['modulnummer'];
             $mname = $_POST['modulname'];
@@ -42,33 +47,46 @@
             $sql = "INSERT INTO module (ModulNummer, ModulName, Datum, VornameLeiter, NachnameLeiter, eMailLeiter) VALUES('$nummer', '$mname', '$datum', '$vorname', '$nachname', '$email')";
 
             if($GLOBALS['conn']->query($sql) === TRUE) {
-                echo "<script>alert('Modul erfolgreich erfasst');</script>";
+                 
+                echo '<script>message.innerHTML += "Modul erfolgreich erfasst<br>";</script>';
             } else {
-                //exit;
+                 
+                echo '<script>message.innerHTML += "Die Daten konnten nicht erfasst werden<br>";</script>';
             }
 
             //create a new table called '[modulname]' for later record of students' grades
-            $sql2 = "CREATE TABLE test (Vorname VARCHAR, Nachname VARCHAR, Note INT)";
-            $sql2 = "CREATE TABLE `{$mname}` (vorname VARCHAR(50), nachname VARCHAR(50), note INT )";
+            $sql2 = "CREATE TABLE `{$mname}` (vorname TEXT, nachname TEXT, note INT )";
 
             if($GLOBALS['conn']->query($sql2) == TRUE) {
-                echo "<script>alert('Notentabelle für das Modul $mname erfolgreich erstellt');</script>";
+                 
+                echo "<script>message.innerHTML += 'Notentabelle für das Modul $mname erfolgreich erstellt<br>';</script>";
             }
             else {
-                //exit;
+                 
+                echo "<script>message.innerHTML += 'Es konnte keine Notentabelle für das Modul $mname erstellt werden<br>';</script>";
             }
 
             //send a mail with the module's data to the teacher
             $msg = "Modulnummer: $nummer<br>Modulname: $mname<br>Durchführungsdatum: $datum<br>Vorname Kursleiter: $vorname<br>Nachname Kursleiter: $nachname";
             $msg = wordwrap($msg, 70);
 
-            mail($email, "Durchführung Modul $nummer", $msg);
+            if(mail($email, "Durchführung Modul $nummer", $msg)) {
+                 
+                echo "<script>message.innerHTML += 'E-Mail mit den Kursinformationen wurde erfolgreich an $email gesendet<br>';</script>";
+            }
+            else {
+                 
+                echo "<script>message.innerHTML += 'Es konnte keine E-Mail mit Kursinformationen an $email gesendet werden<br>';</script>";
+            }
             
-            echo "<h3>Mail an den Kursleiter</h3><p>Durchführung Modul $nummer</p><p>$msg</p>";
+            echo "<div class=\"container\"><h3>Mail an den Kursleiter</h3><p>Durchführung Modul $nummer</p><p>$msg</p></div>";
         }
 
+        //if it didn't work, print out an error and return to the form input
         else {
-            echo "<script>alert('Fehler: Das Modul konnte nicht erfasst werden');</script>";
+             
+            echo "<script>message.innerHTML += 'Fehler: Das Modul konnte nicht erfasst werden<br>';</script>";
+            sleep(5);
         }
     }
 
@@ -81,34 +99,40 @@
             //validate the format of all the given inputs
             
             if(!preg_match("/\d+/", $_POST['modulnummer'])) {
-                echo "<script>alert('Fehleingabe: Die Modulnummer darf nur aus Zahlen bestehen und muss mindestens eine Ziffer lang sein');</script>";
+                 
+                echo '<script>message.innerHTML += "Fehleingabe: Die Modulnummer darf nur aus Zahlen bestehen und muss mindestens eine Ziffer lang sein<br>";</script>';
                 $validated = false;
             }
             
             if(!preg_match("/[a-zA-Z0-9]+/", $_POST['modulname'])) {
-                echo "<script>alert('Fehleingabe: Der Modulname darf nur Gross- und Kleinbuchstaben oder Zahlen enthalten und muss mindestens ein Zeichen lang sein');</script>";
+                 
+                echo '<script>message.innerHTML += "Fehleingabe: Der Modulname darf nur Gross- und Kleinbuchstaben oder Zahlen enthalten und muss mindestens ein Zeichen lang sein<br>";</script>';
                 $validated = false;
             }
 
             if(!preg_match("/[a-zA-Z]+/", $_POST['vorname'])) {
-                echo "<script>alert('Fehleingabe: Der Name des Kursleiters darf nur aus Gross- und Kleinbuchstaben bestehen und muss mindestens ein Zeichen lang sein');</script>";
+                 
+                echo '<script>message.innerHTML += "Fehleingabe: Der Name des Kursleiters darf nur aus Gross- und Kleinbuchstaben bestehen und muss mindestens ein Zeichen lang sein<br>";</script>';
                 $validated = false;
             }
 
             if(!preg_match("/[a-zA-Z]+/", $_POST['nachname'])) {
-                echo "<script>alert('Fehleingabe: Der Nachname des Kursleiters darf nur aus Gross- und Kleinbuchstaben bestehen und muss mindestens ein Zeichen lang sein');</script>";
+                 
+                echo '<script>message.innerHTML += "Fehleingabe: Der Nachname des Kursleiters darf nur aus Gross- und Kleinbuchstaben bestehen und muss mindestens ein Zeichen lang sein<br>";</script>';
                 $validated = false;
             }
 
-            /*if(!preg_match("/[\w\d\.]*[a-zA-Z\d]{1}@([\w\d]\.){1,}[a-zA-Z]{2-6}/", $_POST['email'])) {
-                echo "<script>alert('Fehleingabe: Die e-Mail Adresse muss ein gültiges Format haben');</script>";
+            if(!preg_match("/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,6})$/", $_POST['email'])) {
+                 
+                echo '<script>message.innerHTML += "Fehleingabe: Die e-Mail Adresse muss ein gültiges Format haben<br>";</script>';
                 $validated = false;
-            }*/
+            }
         }
 
         //if not, display error message
         else {
-            echo "<script>alert('Fehleingabe: Es müssen alle Felder ausgefüllt werden');</script>";
+             
+            echo '<script>message.innerHTML += "Fehleingabe: Es müssen alle Felder ausgefüllt werden<br>";</script>';
             $validated = false;
         }
 
