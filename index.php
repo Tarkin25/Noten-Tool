@@ -52,7 +52,7 @@
 <!-- buttons start -->
 
 <button class="button button1">Lernender</button>
-<button class="button button2">Lehrmeister</button>
+<button class="button button2">Berufsbildner</button>
 
 <!-- buttons start -->
 
