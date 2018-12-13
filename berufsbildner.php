@@ -9,23 +9,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="functions.js"></script>
+
+    <!-- php funktionen  start -->
+
     <?php include 'functions.php'; ?>
 
+    <!-- php funktionen  ende -->
+
+    <!-- titel der seite start -->
+
     <title>NoserYoung Noten-Tool</title>
+
+    <!-- titel der seite ende -->
 
     <meta charset="utf-8">
 </head>
 <body>
 
+<!-- Jumborton und container start -->
+
+<div class="jumbotron">
+<div class="container"> 
+
+<!-- Jumborton und container ende -->
 
 <!-- navbar start -->
+<div class="koerper">
     <img src="logo.png">
     <ul>
     <li><a class="active" href="#home">Home</a></li>
     <li><a href="#contact">Module und Noten</a></li>
     <li><a href="#about">Eintragen von Noten</a></li>
     </ul>
-
+</div>
 <!-- navbar -->
 
 
@@ -61,6 +77,12 @@
         <button type="submit" class="btn btn-primary">Eintragen</button>
     </form>
     </div>
+
 <!-- Formular ende -->
+
+<!-- Jumborton und container start -->
+</div>
+</div>
+<!-- Jumborton und container ende -->
 </body>
 </html>
