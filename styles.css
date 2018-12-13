@@ -86,3 +86,20 @@ ul {
 
 /* buttons ende */
 
+/* Ausgabe start */
+
+#modules {
+  display: none;
+}
+
+table {
+  width: 100%;
+}
+
+td {
+  border: solid 2px black;
+  text-align: center;
+}
+
+/* Ausgabe ende */
+

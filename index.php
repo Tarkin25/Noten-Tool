@@ -29,7 +29,7 @@
 </head>
 <body>
 
-<!-- Jumborton und container start -->
+<!-- Jumbotron und container start -->
 
 
 <div class="jumbotron">
@@ -53,6 +53,12 @@
 
 <button class="button button1">Lernender</button>
 <button class="button button2">Lehrmeister</button>
+
+<div class="container">
+    <br>
+    <br>
+    <?php showModules(); ?>
+</div>
 
 <!-- buttons start -->
 

@@ -228,4 +228,30 @@
         return $validated;
     }
 
+    function showModules() {
+        connect();
+
+        $sql = "SELECT * FROM module";
+        $result = $GLOBALS['conn']->query($sql);
+
+        if ($result->num_rows > 0) {
+
+            echo "<table>";
+
+            while($row = $result->fetch_assoc()) {
+                echo "<tr><td>" . $row['ModulNummer'] . "</td><td>" . $row['ModulName'] . "</td><td>" . $row['VornameLeiter'] . "</td><td>" . $row['NachnameLeiter'] . "</td><td>" . $row['eMailLeiter'] ."</td></tr>";
+            }
+
+            echo "</table>";
+        } 
+        else {
+            echo "0 results";
+        }
+    }
+
+    function showGrades() {
+
+        echo "Hello World";
+    }
+
 ?>
