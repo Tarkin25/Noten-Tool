@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="functions.js"></script>
 
-    <!-- php funktionen  start -->
+ <!-- php funktionen  start -->
 
     <?php include 'functions.php'; ?>
 
-    <!-- php funktionen  ende -->
+<!-- php funktionen  ende -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" text="html/css" href="styles.css">
@@ -33,31 +33,35 @@
 
 
 <div class="jumbotron">
-<div class="container"> 
-    
+    <div class="container"> 
+        
 <!-- Jumborton und container ende -->
 
 
 <!-- navbar start -->
-<div class="koerper">
-<img src="logo.png">
-    <ul>
-    <li><a class="active" href="#home">Home</a></li>
-    <li><a href="#contact">Module und Noten</a></li>
-    <li><a href="#about">Eintragen von Noten</a></li>
-    </ul>
-</div>
+            <div class="koerper">
+                <img src="logo.png">
+                    <ul>
+                        <li><a class="active" href="#home">Home</a></li>
+                        <li><a href="#contact">Module und Noten</a></li>
+                        <li><a href="#about">Eintragen von Noten</a></li>
+                    </ul>
+            </div>
 <!-- navbar -->
 
+        <br/>
+
 <!-- buttons start -->
-<div class="col-md-3">
-</div>
-<div class="col-md-3"> 
-<button class="button button1">Lernender</button>
-</div>
-<div class="col-md-3">
-<button class="button button2">Berufsbildner</button>
-</div>
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-3"> 
+            <button class="button button1">Lernender</button>
+        </div>
+        <div class="col-sm-3">
+            <button class="button button2">Berufsbildner</button>
+        </div>
+        <div class="col-sm-3">
+        </div>
 
 <div class="container">
     <br>
@@ -69,11 +73,22 @@
 
 <!-- Jumborton und container start -->
 
-</div>
+    </div>
 </div>
 
 <!-- Jumborton und container ende -->
 
+<!-- footer start -->
+
+<div class="jumborton">
+    <div class="container">
+        <div class="footer">
+            <p>® Severin und Larissa</p>
+        </div>
+    </div>
+</div>
+
+<!-- footer start -->
 
 </body>
 </html>

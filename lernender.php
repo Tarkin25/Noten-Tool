@@ -52,24 +52,24 @@
     <h2>Formular zum eintragen der Modulnote</h2>
     <form action="addGrade.php" method="post">
         <div class="form-group">
-        <label for="modulname">Modulname:</label>
-        <input type="text" class="form-control" id="modulname" placeholder="Trage den Modulnamen ein" name="modulname">
+            <label for="modulname">Modulname:</label>
+            <input type="text" class="form-control" id="modulname" placeholder="Trage den Modulnamen ein" name="modulname">
         </div>
         <div class="form-group">
-        <label for="modulname">Vorname:</label>
-        <input type="text" class="form-control" id="vorname" placeholder="Trage deinen Vornamen ein" name="vorname">
+            <label for="modulname">Vorname:</label>
+            <input type="text" class="form-control" id="vorname" placeholder="Trage deinen Vornamen ein" name="vorname">
         </div>
         <div class="form-group">
-        <label for="durchführungsdatum">Nachname:</label>
-        <input type="text" class="form-control" id="nachname" placeholder="Trage deinen Nachnamen ein" name="nachname">
+            <label for="durchführungsdatum">Nachname:</label>
+            <input type="text" class="form-control" id="nachname" placeholder="Trage deinen Nachnamen ein" name="nachname">
         </div>
         <div class="form-group">
-        <label for="vorname">Note:</label>
-        <input type="text" class="form-control" id="note" placeholder="Trage deine Note ein" name="note">
+            <label for="vorname">Note:</label>
+            <input type="text" class="form-control" id="note" placeholder="Trage deine Note ein" name="note">
         </div>
         <button type="submit" class="btn btn-primary">Eintragen</button>
     </form>
-    </div>
+</div>
 
 <!-- Formular ende -->
 
