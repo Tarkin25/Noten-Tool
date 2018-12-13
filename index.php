@@ -19,6 +19,9 @@
 </head>
 <body>
 
+<div class="jumbotron">
+<div class="container">       
+
 <!-- navbar start -->
 <div class="koerper">
 <img src="logo.png">
@@ -33,5 +36,7 @@
 <button class="button button1">Lernender</button>
 <button class="button button2">Lehrmeister</button>
 
+</div>
+</div>
 </body>
 </html>

@@ -17,6 +17,20 @@
 </head>
 <body>
 
+<div class="jumbotron">
+<div class="container"> 
+
+<!-- navbar start -->
+<div class="koerper">
+    <img src="logo.png">
+    <ul>
+    <li><a class="active" href="#home">Home</a></li>
+    <li><a href="#contact">Module und Noten</a></li>
+    <li><a href="#about">Eintragen von Noten</a></li>
+    </ul>
+</div>
+<!-- navbar -->
+
 <!-- Formular start-->
 <div class="container">
     <h2>Formular zum eintragen der Modulnote</h2>

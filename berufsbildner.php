@@ -17,15 +17,18 @@
 </head>
 <body>
 
+<div class="jumbotron">
+<div class="container"> 
 
 <!-- navbar start -->
+<div class="koerper">
     <img src="logo.png">
     <ul>
     <li><a class="active" href="#home">Home</a></li>
     <li><a href="#contact">Module und Noten</a></li>
     <li><a href="#about">Eintragen von Noten</a></li>
     </ul>
-
+</div>
 <!-- navbar -->
 
 
@@ -61,6 +64,8 @@
         <button type="submit" class="btn btn-primary">Eintragen</button>
     </form>
     </div>
+</div>
+</div>
 <!-- Formular ende -->
 </body>
 </html>
