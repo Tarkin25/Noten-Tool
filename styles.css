@@ -1,5 +1,7 @@
 /* allgemein start */
-
+.koerper{
+background-color: white;
+}
 /* allgemein ende */
 
 /* navbar start */
@@ -38,12 +40,8 @@ ul {
 
 /* buttons start */
 
-button {
-  background-color: red;
-}
 
 .button {
-  background-color: #4CAF50; /* Green */
   border: none;
   color: white;
   padding: 16px 32px;
@@ -72,16 +70,16 @@ button {
 }
 
 .button2 {
-    background-color:  rgb(28, 106, 179); 
-    color: black; 
-    border: 2px solid rgb(28, 106, 179);
+    background-color:  rgb(76, 119, 175); 106, 179); 
+    color: lightgrey;
+    border: 2px solid rgb(76, 119, 175);;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     width: 25%;  
 }
   
   .button2:hover {
     background-color: white;
-    color: black;
+    color: grey;
   }
 
 

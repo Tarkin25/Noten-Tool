@@ -20,19 +20,19 @@
 <body>
 
 <!-- navbar start -->
+<div class="koerper">
 <img src="logo.png">
     <ul>
     <li><a class="active" href="#home">Home</a></li>
     <li><a href="#contact">Module und Noten</a></li>
     <li><a href="#about">Eintragen von Noten</a></li>
     </ul>
-
+</div>
 <!-- navbar -->
 
 
 <button class="button button1">Lernender</button>
 <button class="button button2">Lehrmeister</button>
-
 
 </body>
 </html>
