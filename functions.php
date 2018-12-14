@@ -52,7 +52,7 @@
 
             if($GLOBALS['conn']->query($sql) === TRUE) {
                  
-                echo '<script>message.innerHTML += "Modul erfolgreich erfasst<br>";</script>';
+                echo "<script>message.innerHTML += \"Modul <b>$mname</b> erfolgreich erfasst<br>\";</script>";
             } else {
                 $retry = true;
                 echo '<script>message.innerHTML += "Die Daten konnten nicht erfasst werden<br>";</script>';
@@ -62,11 +62,11 @@
             $sql2 = "CREATE TABLE `{$mname}` (vorname TEXT, nachname TEXT, note DOUBLE )";
 
             if($GLOBALS['conn']->query($sql2) == TRUE) {
-                echo "<script>message.innerHTML += 'Notentabelle für das Modul $mname erfolgreich erstellt<br>';</script>";
+                echo "<script>message.innerHTML += 'Notentabelle für das Modul <b>$mname</b> erfolgreich erstellt<br>';</script>";
             }
             else {
                 $retry = true;
-                echo "<script>message.innerHTML += 'Es konnte keine Notentabelle für das Modul $mname erstellt werden<br>';</script>";
+                echo "<script>message.innerHTML += 'Es konnte keine Notentabelle für das Modul <b>$mname</b> erstellt werden<br>';</script>";
             }
 
             //send a mail with the module's data to the teacher
@@ -75,20 +75,20 @@
 
             if(mail($email, "Durchführung Modul $nummer", $msg)) {
                  
-                echo "<script>message.innerHTML += 'E-Mail mit den Kursinformationen wurde erfolgreich an $email gesendet<br>';</script>";
+                echo "<script>message.innerHTML += 'E-Mail mit den Kursinformationen wurde erfolgreich an <b>$email</b> gesendet<br>';</script>";
             }
             else {
                  
-                echo "<script>message.innerHTML += 'Es konnte keine E-Mail mit Kursinformationen an $email gesendet werden<br>';</script>";
+                echo "<script>message.innerHTML += 'Es konnte keine E-Mail mit Kursinformationen an <b>$email</b> gesendet werden<br>';</script>";
             }
             
-            echo "<div class=\"container\"><h3>Mail an den Kursleiter</h3><p>Durchführung Modul $nummer</p><p>$msg</p></div>";
+            echo "<h3>Mail an den Kursleiter</h3><p>Durchführung Modul $nummer</p><p>$msg</p>";
         }
 
         //if it didn't work, print out an error
         else {
             $retry = true;
-            echo "<script>message.innerHTML += 'Fehler: Das Modul konnte nicht erfasst werden<br>';</script>";
+            echo "<script>message.innerHTML += \"Fehler: Das Modul <b>$mname</b> konnte nicht erfasst werden<br>\";</script>";
         }
 
         //if something didn't work, return to the form input, else return to the home page
@@ -118,10 +118,10 @@
             $sql = "INSERT INTO `{$mname}` (vorname, nachname, note) VALUES('$vorname', '$nachname', '$note')";
 
             if($GLOBALS['conn']->query($sql) === TRUE) {
-                echo "<script>message.innerHTML += \"Note für das Modul $mname erfolgreich erfasst<br>\";</script>";
+                echo "<script>message.innerHTML += \"Note für das Modul <b>$mname</b> erfolgreich erfasst<br>\";</script>";
                 echo "<button class=\"btn btn-primary\" onclick=\"toIndex()\">Okay</button>";
             } else { 
-                echo "<script>message.innerHTML += \"Fehler: Note konnte für das Modul $mname nicht erfasst werden<br>\";</script>";
+                echo "<script>message.innerHTML += \"Fehler: Note konnte für das Modul <b>$mname</b> nicht erfasst werden<br>\";</script>";
                 echo "<button class=\"btn btn-primary\" onclick=\"toLernender()\">Okay</button>";
             }
         }
@@ -146,6 +146,14 @@
             if(!preg_match("/\d+/", $_POST['modulnummer'])) {
                  
                 echo '<script>message.innerHTML += "Fehleingabe: Die Modulnummer darf nur aus Zahlen bestehen und muss mindestens eine Ziffer lang sein<br>";</script>';
+                $validated = false;
+            }
+
+            //check if table named "[$mname]" already exists
+            $tempname = $_POST['modulname'];
+            $checktable = $GLOBALS['conn']->query("SHOW TABLES LIKE '$tempname'");
+            if($checktable->num_rows > 0) {
+                echo "<script>message.innerHTML += \"Fehler: Das Modul <b>$tempname</b> exisiert bereits<br>\";</script>";
                 $validated = false;
             }
             
@@ -254,7 +262,7 @@
     function showModules() {
         connect();
 
-        $sql = "SELECT * FROM module";
+        $sql = "SELECT * FROM module ORDER BY Datum";
         $result = $GLOBALS['conn']->query($sql);
 
         //take all the listed modules and print them out in a table
@@ -263,7 +271,7 @@
             while($row = $result->fetch_assoc()) {
                 echo "<tr><td>" . $row['ModulNummer'] . "</td><td>" . $row['ModulName'] . "</td><td>" . $row['Datum'] . "</td><td>" . $row['VornameLeiter'] . "</td><td>" . $row['NachnameLeiter'] . "</td><td>" . $row['eMailLeiter'] ."</td>";
                 //TODO echo form
-                echo "<td class=\"noBorder\"><form action='index.php' method='post'><input type='hidden' name='modulname' value='" . $row['ModulName'] . "'><button type='submit' name='grades'>Noten</button></form></td></tr>";
+                echo "<td class=\"noBorder\"><form action='index.php' method='post'><input type='hidden' name='modulname' value='" . $row['ModulName'] . "'><button class=\"btn btn-primary btn-sm\" type='submit' name='grades'>Noten</button></form></td></tr>";
             }
 
         }
@@ -275,11 +283,11 @@
         if(validateGrade() == true) {
             $modulname = $_POST['modulname'];
 
-            $sql = "SELECT * FROM $modulname";
+            $sql = "SELECT * FROM $modulname ORDER BY Nachname";
 
             $result = $GLOBALS['conn']->query($sql);
 
-            echo "<h2>Notenübersicht zum Modul $modulname</h2>";
+            echo "<br><br><h2>Notenübersicht zum Modul $modulname</h2>";
 
             //print all the students in the requested module in a table
             if ($result->num_rows > 0) {

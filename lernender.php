@@ -16,11 +16,11 @@
 
     <body>
 
-        <div class="jumbotron">
+        <div class="container-fluid">
 
             <!--------------------------------NAVBAR-------------------------->
             <div class="koerper">
-                <img src="logo.png">
+                <img src="bilder/Logo.JPG">
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <li><a href="berufsbildner.php">Module eintragen</a></li>
@@ -51,6 +51,14 @@
                     <button type="submit" class="btn btn-primary">Eintragen</button>
                 </form>
             </div>
+
+            <!-------------------------------FOOTER------------------------------------------>
+            <br>
+            <br>
+            <br>
+            <footer class="footer">
+                © Copyright by Larissa Bosshard & Severin Weigold
+            </footer>
 
         </div>
 

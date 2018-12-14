@@ -16,11 +16,11 @@
 
     <body>
 
-        <div class="jumbotron">
+        <div class="container-fluid">
 
             <!--------------------------------NAVBAR-------------------------->
             <div class="koerper">
-                <img src="logo.png">
+                <img src="bilder/Logo.JPG">
                 <ul>
                     <li><a href="">Home</a></li>
                     <li><a href="">Module eintragen</a></li>
@@ -43,6 +43,14 @@
                     window.location.href = "lernender.php";
                 }
             </script>
+
+            <!-------------------------------FOOTER------------------------------------------>
+            <br>
+            <br>
+            <br>
+            <footer class="footer">
+                © Copyright by Larissa Bosshard & Severin Weigold
+            </footer>
 
         </div>
 

@@ -3,13 +3,26 @@
 background-color: white;
 }
 
+.container-fluid {
+  min-height: 100vh;
+  margin-bottom: 0px;
+}
+
 footer {
 background-color: #333;
 color: white;
+text-align: center;
+height: 100% auto;
+padding: 25px;
 }
 
 .col-md-12 {
   text-align: center;
+}
+
+.jumbotron {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 
 /* allgemein ende */
@@ -37,6 +50,11 @@ ul {
   
   li a:hover:not(.active) {
     background-color: #111;
+    text-decoration: none;
+    color: white;
+  }
+
+  a.active:hover {
     text-decoration: none;
     color: white;
   }
@@ -86,6 +104,16 @@ table {
 
 .noBorder {
   border: none;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [th] {
+    padding: 0px;
+  }
+  [td] {
+    padding: 0px;
+  }
 }
 
 /* Ausgabe ende */
