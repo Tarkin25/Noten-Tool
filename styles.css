@@ -72,8 +72,7 @@ ul {
 
 th, td {
   border: 1px solid black;
-  width: 100% auto;
-  padding: 20px;
+  padding: 0px;
 }
 
 td.noBorder {
@@ -82,6 +81,7 @@ td.noBorder {
 
 table {
   display: inline-block;
+  width: 100%;
 }
 
 .noBorder {

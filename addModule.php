@@ -20,6 +20,15 @@
             <p id="message">Loading...</p>
         </div>
 
+        <script>
+            function toIndex() {
+                window.location.href = "index.php";
+            }
+            function toBerufsbildner() {
+                window.location.href = "berufsbildner.php";
+            }
+        </script>
+
         <?php addModule(); ?>
 
     </body>

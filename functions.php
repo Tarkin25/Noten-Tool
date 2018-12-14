@@ -36,6 +36,8 @@
 
         $retry = false;
 
+        echo "<div class=\"container\">";
+
         //only if the form is validated insert data into database and send e-mail to the teacher
         if(validateModule() == true) {
             $nummer = $_POST['modulnummer'];
@@ -91,15 +93,19 @@
 
         //if something didn't work, return to the form input, else return to the home page
         if($retry == true) {
-            echo "<script>setTimeout(function(){document.location.href = 'berufsbildner.php';}, 7000);</script>";
+            echo "<button class=\"btn btn-primary\" onclick=\"toBerufsbildner()\">Okay</button>";
         }
         else {
-            echo "<script>setTimeout(function(){document.location.href = 'index.php';}, 7000);</script>";
+            echo "<button class=\"btn btn-primary\" onclick=\"toIndex()\">Okay</button>";
         }
+
+        echo "</div>";
     }
 
     function addGrade() {
         connect();
+
+        echo "<div class=\"container\">";
 
         //only if the form is validated insert data into table
         if(validateGrade() == true) {
@@ -113,19 +119,20 @@
 
             if($GLOBALS['conn']->query($sql) === TRUE) {
                 echo "<script>message.innerHTML += \"Note für das Modul $mname erfolgreich erfasst<br>\";</script>";
-                echo "<script>document.getElementById('gradeNavigation').style.display = 'none';</script>";
-                echo "<script>setTimeout(function(){document.location.href = 'index.php';}, 4000);</script>";
+                echo "<button class=\"btn btn-primary\" onclick=\"toIndex()\">Okay</button>";
             } else { 
                 echo "<script>message.innerHTML += \"Fehler: Note konnte für das Modul $mname nicht erfasst werden<br>\";</script>";
-                echo "<script>setTimeout(function(){document.location.href = 'lernender.php';}, 4000);</script>";
+                echo "<button class=\"btn btn-primary\" onclick=\"toLernender()\">Okay</button>";
             }
         }
 
         //if it didn't work, print out an error
         else {
             echo "<script>message.innerHTML += 'Fehler: Note konnte nicht erfasst werden<br>';</script>";
-            echo "<script>setTimeout(function(){document.location.href = 'lernender.php';}, 4000);</script>";
+            echo "<button class=\"btn btn-primary\" onclick=\"toLernender()\">Okay</button>";
         }
+
+        echo "</div>";
     }
 
     function validateModule() {

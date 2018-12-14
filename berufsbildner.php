@@ -17,51 +17,49 @@
     <body>
 
         <div class="jumbotron">
-            <div class="container"> 
 
-                <!----------------------------------NAVBAR------------------------------------------>
-                <div class="koerper">
-                    <img src="logo.png">
-                        <ul>
-                            <li><a href="index.php">Home</a></li>
-                            <li><a class="active" href="">Module eintragen</a></li>
-                            <li><a href="lernender.php">Noten eintragen</a></li>
-                        </ul>
-                </div>
-
-                <!------------------------------------FORMULAR------------------------------------------>
-                <div class="container">
-                    <h2>Formular zum Eintragen der Module</h2>
-                    <form action="addModule.php" method="post">
-                        <div class="form-group">
-                            <label for="modulnummer">Modulnummer:</label>
-                            <input type="number" class="form-control" id="modulnummer" placeholder="Trage die Modulnummer ein" name="modulnummer">
-                        </div>
-                        <div class="form-group">
-                            <label for="modulname">Modulname:</label>
-                            <input type="text" class="form-control" id="modulname" placeholder="Trage die Modulname ein" name="modulname">
-                        </div>
-                        <div class="form-group">
-                            <label for="durchführungsdatum">Voraussichtliches Durchführungsdatum:</label>
-                            <input type="date" class="form-control" id="durchführungsdatum" placeholder="Trage das Durchführungsdatum ein" name="durchführungsdatum">
-                        </div>
-                        <div class="form-group">
-                            <label for="vorname">Vorname:</label>
-                            <input type="text" class="form-control" id="vorname" placeholder="Trage deinen Vornamen ein" name="vorname">
-                        </div>
-                        <div class="form-group">
-                            <label for="nachname">Nachname:</label>
-                            <input type="text" class="form-control" id="nachname" placeholder="Trage deinen Nachnamen ein" name="nachname">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-Mailadresse:</label>
-                            <input type="email" class="form-control" id="email" placeholder="Trage deine E-Mail ein" name="email">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Eintragen</button>
-                    </form>
-                </div>
-
+            <!----------------------------------NAVBAR------------------------------------------>
+            <div class="koerper">
+                <img src="logo.png">
+                    <ul>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a class="active" href="">Module eintragen</a></li>
+                        <li><a href="lernender.php">Noten eintragen</a></li>
+                    </ul>
             </div>
+
+            <!------------------------------------FORMULAR------------------------------------------>
+            <div class="container">
+                <h2>Formular zum Eintragen der Module</h2>
+                <form action="addModule.php" method="post">
+                    <div class="form-group">
+                        <label for="modulnummer">Modulnummer:</label>
+                        <input type="number" class="form-control" id="modulnummer" placeholder="Trage die Modulnummer ein" name="modulnummer">
+                    </div>
+                    <div class="form-group">
+                        <label for="modulname">Modulname:</label>
+                        <input type="text" class="form-control" id="modulname" placeholder="Trage die Modulname ein" name="modulname">
+                    </div>
+                    <div class="form-group">
+                        <label for="durchführungsdatum">Voraussichtliches Durchführungsdatum:</label>
+                        <input type="date" class="form-control" id="durchführungsdatum" placeholder="Trage das Durchführungsdatum ein" name="durchführungsdatum">
+                    </div>
+                    <div class="form-group">
+                        <label for="vorname">Vorname:</label>
+                        <input type="text" class="form-control" id="vorname" placeholder="Trage deinen Vornamen ein" name="vorname">
+                    </div>
+                    <div class="form-group">
+                        <label for="nachname">Nachname:</label>
+                        <input type="text" class="form-control" id="nachname" placeholder="Trage deinen Nachnamen ein" name="nachname">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mailadresse:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Trage deine E-Mail ein" name="email">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Eintragen</button>
+                </form>
+            </div>
+
         </div>
 
     </body>
