@@ -3,9 +3,13 @@
 background-color: white;
 }
 
-.footer {
+footer {
 background-color: #333;
 color: white;
+}
+
+.col-md-12 {
+  text-align: center;
 }
 
 /* allgemein ende */
@@ -62,50 +66,26 @@ ul {
 
 }
 
-.button1 {
-  background-color:  rgb(53, 54, 53); 
-  color: lightgrey; 
-  border: 2px solid rgb(53, 54, 53);
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  width: 100%; 
-}
-
-.button1:hover {
-  background-color: white;
-  color: grey;
-}
-
-.button2 {
-    background-color:  rgb(76, 119, 175); 
-    color: lightgrey;
-    border: 2px solid rgb(76, 119, 175);;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    width: 100%;  
-    
-}
-  
-  .button2:hover {
-    background-color: white;
-    color: grey;
-  }
-
-
 /* buttons ende */
 
 /* Ausgabe start */
 
-#modules {
-  display: none;
+th, td {
+  border: 1px solid black;
+  width: 100% auto;
+  padding: 20px;
+}
+
+td.noBorder {
+  border: 0px solid white;
 }
 
 table {
-  width: 50%;
+  display: inline-block;
 }
 
-td {
-  border: solid 2px black;
-  text-align: center;
-  width: 100%;
+.noBorder {
+  border: none;
 }
 
 /* Ausgabe ende */

@@ -1,6 +1,6 @@
 <?php
 
-    //error_reporting(0);
+    error_reporting(0);
 
     function connect() {
         $servername = "localhost";
@@ -91,10 +91,10 @@
 
         //if something didn't work, return to the form input, else return to the home page
         if($retry == true) {
-            echo "<script>setTimeout(function(){document.location.href = 'berufsbildner.php';}, 4000);</script>";
+            echo "<script>setTimeout(function(){document.location.href = 'berufsbildner.php';}, 7000);</script>";
         }
         else {
-            echo "<script>setTimeout(function(){document.location.href = 'index.php';}, 4000);</script>";
+            echo "<script>setTimeout(function(){document.location.href = 'index.php';}, 7000);</script>";
         }
     }
 
@@ -213,7 +213,7 @@
             $tempname = $_POST['modulname'];
             $checktable = $GLOBALS['conn']->query("SHOW TABLES LIKE '$tempname'");
             if($checktable->num_rows == 0) {
-                echo "<script>message.innerHTML += \"Fehler: Das Modul $tempname exisiert nicht<br>\";</script>";
+                echo "<script>message.innerHTML += \"Fehler: Das Modul <b>$tempname</b> exisiert nicht<br>\";</script>";
                 $validated = false;
             }
         }
@@ -229,7 +229,7 @@
             $tempname = $_POST['modulname'];
             $checktable = $GLOBALS['conn']->query("SHOW TABLES LIKE '$tempname'");
             if($checktable->num_rows == 0) {
-                echo "Fehler: Das Modul $tempname exisiert nicht<br>";
+                echo "Fehler: Das Modul <b>$tempname</b> exisiert nicht<br>";
                 $validated = false;
             }
         }
@@ -253,16 +253,12 @@
         //take all the listed modules and print them out in a table
         if ($result->num_rows > 0) {
 
-            echo "<table>";
-
             while($row = $result->fetch_assoc()) {
-                echo "<tr><td>" . $row['ModulNummer'] . "</td><td>" . $row['ModulName'] . "</td><td>" . $row['VornameLeiter'] . "</td><td>" . $row['NachnameLeiter'] . "</td><td>" . $row['eMailLeiter'] ."</td></tr>";
+                echo "<tr><td>" . $row['ModulNummer'] . "</td><td>" . $row['ModulName'] . "</td><td>" . $row['Datum'] . "</td><td>" . $row['VornameLeiter'] . "</td><td>" . $row['NachnameLeiter'] . "</td><td>" . $row['eMailLeiter'] ."</td>";
+                //TODO echo form
+                echo "<td class=\"noBorder\"><form action='index.php' method='post'><input type='hidden' name='modulname' value='" . $row['ModulName'] . "'><button type='submit' name='grades'>Noten</button></form></td></tr>";
             }
 
-            echo "</table>";
-        }
-        else {
-            echo "<p>Keine Module vorhanden</p>";
         }
     }
 
@@ -279,7 +275,7 @@
             //print all the students in the requested module in a table
             if ($result->num_rows > 0) {
 
-                echo "<table>";
+                echo "<table><tr><th>Vorname</th><th>Nachname</th><th>Note</th></tr>";
                 
                 while($row = $result->fetch_assoc()) {
                     echo "<tr><td>" . $row['vorname'] . "</td><td>" . $row['nachname'] . "</td><td>" . $row['note'] . "</td></tr>";
@@ -288,7 +284,7 @@
                 echo "</table>";
             } 
             else {
-                echo "<p>Kein Modul mit dem Namen <b>$modulname</b> vorhanden</p>";
+                echo "<p>Keine Noteneinträge zum Modul <b>$modulname</b> vorhanden</p>";
             }
         }
     }
