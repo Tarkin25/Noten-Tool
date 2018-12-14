@@ -33,6 +33,7 @@
                 <br>
 
                 <div class="col-md-12">
+                    <h2>Modulübersicht</h2>
                     <table>
                         <tr><th>Nummer</th><th>Name</th><th>Datum</th><th>Vorn. Leiter</th><th>Nachn. Leiter</th><th>e-Mail</th></tr>
                         <?php showModules();?>

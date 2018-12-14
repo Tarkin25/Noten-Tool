@@ -279,6 +279,8 @@
 
             $result = $GLOBALS['conn']->query($sql);
 
+            echo "<h2>Notenübersicht zum Modul $modulname</h2>";
+
             //print all the students in the requested module in a table
             if ($result->num_rows > 0) {
 
