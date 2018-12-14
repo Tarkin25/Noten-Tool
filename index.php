@@ -41,8 +41,9 @@
                 </div>
 
                 <div class="col-md-12"><?php if(isset($_POST['grades'])) showGrades(); ?></div>
-
+                <br/>
+                <h6>® Severin & Larissa</h6>
         </div>
-
+        
     </body>
 </html>

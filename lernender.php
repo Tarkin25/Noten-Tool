@@ -50,6 +50,8 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Eintragen</button>
                 </form>
+                <br/>
+                <h6>® Severin & Larissa</h6>
             </div>
 
         </div>
