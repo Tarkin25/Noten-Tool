@@ -20,7 +20,7 @@
 
             <!--------------------------------NAVBAR-------------------------->
             <div class="koerper">
-                <img src="bilder/Logo.JPG">
+                <img src="bilder/Logo.JPG" alt="NoserYoung Logo">
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <li><a href="berufsbildner.php">Module eintragen</a></li>
