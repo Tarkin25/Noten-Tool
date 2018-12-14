@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                         <label for="modulname">Modulname:</label>
-                        <input type="text" class="form-control" id="modulname" placeholder="Trage die Modulname ein" name="modulname">
+                        <input type="text" class="form-control" id="modulname" placeholder="Trage den Modulnamen ein" name="modulname">
                     </div>
                     <div class="form-group">
                         <label for="durchführungsdatum">Voraussichtliches Durchführungsdatum:</label>
