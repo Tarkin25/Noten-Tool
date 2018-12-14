@@ -42,15 +42,15 @@
 
                 <div class="col-md-12"><?php if(isset($_POST['grades'])) showGrades(); ?></div>
 
-                <!-------------------------------FOOTER------------------------------------------>
-                <br>
-                <br>
-                <br>
-                <footer class="footer">
-                    © Copyright by Larissa Bosshard & Severin Weigold
-                </footer>
-
         </div>
+
+        <br>
+        <br>
+
+        <!-------------------------------FOOTER------------------------------------------>
+        <footer class="footer">
+            © Copyright by Larissa Bosshard & Severin Weigold
+        </footer>
         
     </body>
 </html>

@@ -59,16 +59,15 @@
                     <button type="submit" class="btn btn-primary">Eintragen</button>
                 </form>
             </div>
-
-            <!-------------------------------FOOTER------------------------------------------>
-            <br>
-            <br>
-            <br>
-            <footer class="footer">
-                © Copyright by Larissa Bosshard & Severin Weigold
-            </footer>
-
         </div>
+
+        <br>
+        <br>
+
+        <!-------------------------------FOOTER------------------------------------------>
+        <footer class="footer">
+                © Copyright by Larissa Bosshard & Severin Weigold
+        </footer>
 
     </body>
 </html>

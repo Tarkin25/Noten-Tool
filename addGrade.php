@@ -43,16 +43,15 @@
                     window.location.href = "lernender.php";
                 }
             </script>
-
-            <!-------------------------------FOOTER------------------------------------------>
-            <br>
-            <br>
-            <br>
-            <footer class="footer">
-                © Copyright by Larissa Bosshard & Severin Weigold
-            </footer>
-
         </div>
+
+        <br>
+        <br>
+
+        <!-------------------------------FOOTER------------------------------------------>
+        <footer class="footer">
+                © Copyright by Larissa Bosshard & Severin Weigold
+        </footer>
 
     </body>
 </html>
